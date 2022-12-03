@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
@@ -15,12 +21,24 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/*---------------- Swiper ----------------- */
+@media screen and (width >= 800px) {
+  .swiper {
+    width: 350px;
+    height: 357px;
+    position: absolute;
+    left: 17%;
+    top: 45%;
+    margin-top: -150px;
   }
-  body {
-    color: white;
-    background: black;
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
   }
 }
