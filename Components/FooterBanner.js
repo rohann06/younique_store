@@ -60,7 +60,8 @@ const FooterBanner = ({ heroBanner }) => {
           <h2 className=" text-slate-500/75 font-Poppins font-extrabold text-sm mb-5 mt-5 lg:text-xl lg:mt-5">
             {heroBanner.footertext}
           </h2>
-          <button className=" bg-red-500 text-white font-Poppins px-5 py-2 rounded-xl">BUY NOW</button>
+          <Link href={"/product/black-t-shirt"}>
+          <button className=" bg-red-500 text-white font-Poppins px-5 py-2 rounded-xl">BUY NOW</button></Link>
         </div>
       </div>
     </div>
