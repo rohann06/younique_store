@@ -26,7 +26,7 @@ export default function Home({products, bannerData}) {
         </div>
 
         {/* Products */}
-        <div id="products" className=" flex flex-row gap-10 justify-center">
+        <div id="products" className="grid grid-cols-2 gap-10 p-5  lg:grid-cols-4">
           {products?.map((product) => (
             <Products key={product._id} product={product} />
           ))}
