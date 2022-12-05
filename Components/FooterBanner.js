@@ -18,9 +18,9 @@ import pic4 from "../public/4.jpg";
 
 const FooterBanner = ({ heroBanner }) => {
   return (
-    <div className=" bg-neutral-200 tracking-wide relative rounded-xl mt-10 l h-150 lg:h-100 w-full p-10 lg:rounded-3xl">
+    <div className=" bg-neutral-200 tracking-wide relative rounded-xl mt-10 l h-150 lg:h-100 w-full p-10 lg:rounded-3xl dark:bg-slate-800">
       <div className="lg:flex lg:justify-center lg:gap-60 ">
-        <div className=" p-5 mb-10  ">
+        <div className=" p-6 mb-10  ">
           <Swiper
             effect={"cube"}
             grabCursor={true}
@@ -54,10 +54,10 @@ const FooterBanner = ({ heroBanner }) => {
         </div>
 
         <div className=" lg:py-20">
-          <h1 className=" text-zinc-400/50 font-bold text-5xl lg:text-8xl lg:my-5 lg:w-50">
+          <h1 className=" text-zinc-400/50 font-bold text-5xl lg:text-8xl lg:my-5 lg:w-50 dark:text-slate-600">
             {heroBanner.footerhaeding}
           </h1>
-          <h2 className=" text-slate-500/75 font-Poppins font-extrabold text-sm mb-5 mt-5 lg:text-xl lg:mt-5">
+          <h2 className=" text-slate-500/75 font-Poppins font-extrabold text-sm mb-5 mt-5 lg:text-xl lg:mt-5 dark:text-slate-50">
             {heroBanner.footertext}
           </h2>
           <Link href={"/product/black-t-shirt"}>

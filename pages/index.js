@@ -19,7 +19,7 @@ export default function Home({products, bannerData}) {
         <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
 
         <div className=" text-center mt-20 lg:mt-10 mb-10">
-          <h1 className=" text-slate-700 font-black text-4xl">Products</h1>
+          <h1 className=" text-slate-700 font-black text-4xl dark:text-slate-600">Products</h1>
           <p className=" text-slate-400 my-1 text-lg font-semibold">
             All clothing options for your NFTs.
           </p>

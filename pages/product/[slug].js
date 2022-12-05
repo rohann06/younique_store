@@ -9,10 +9,10 @@ const ProductDetails = ({ product }) => {
 
   return (
     <div>
-        <div className=" flex flex-wrap m-5 lg:flex-row lg:gap-16 lg:m-20 "> 
+        <div className=" flex flex-wrap m-5 lg:flex-row lg:gap-16 lg:m-20"> 
             <div>
-                <div>
-                    <img className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-96 " src={urlFor(image && image[0])} alt="Product Image"/>
+                <div className=" drop-shadow-lg">
+                    <img className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-96 dark:bg-slate-700/50" src={urlFor(image && image[0])} alt="Product Image"/>
                 </div>
                 {/* <div>
                     {image?.map((item, i) => {
@@ -23,20 +23,20 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div>
-                <h1 className=" mt-4 text-4xl font-black font-Poppins text-slate-700 lg:mt-0">{name}</h1>
-                <h4 className=" text-slate-400 my-1 text-sm  font-semibold lg:text-base ">{details}</h4>
+                <h1 className=" mt-4 text-4xl font-black font-Poppins text-slate-700 lg:mt-0 dark:text-slate-500">{name}</h1>
+                <h4 className=" text-slate-400 my-1 text-sm  font-semibold lg:text-base dark:text-slate-50">{details}</h4>
                 <h3 className=" my-5 text-2xl font-bold text-red-500">₹{price}</h3>
 
-                <div className=" flex justify-start bg-amber-300/20 p-3 rounded-xl -my-2 text-yellow-500">
+                <div className=" flex justify-start bg-amber-300/20 p-3 rounded-xl -my-2 text-yellow-500 dark:text-yellow-500">
                     <BsExclamationCircle className="text-3xl lg:text-lg lg:my-1"/>
-                    <p className=" m-1 text-sm"> Every T-shirt is unique for us and for you also,for that we're not adding any <span className=" font-semibold">"quantity button"</span></p>
+                    <p className=" m-1 text-sm"> Every T-shirt is unique for us and for you also,for that we're not giving any <span className=" font-semibold">"quantity buttons"</span></p>
                 </div>
             </div>
         </div>
 
         {/* Reviews */}
         <div className=" text-center mt-20 lg:mt-10 mb-10">
-          <h1 className=" text-slate-700 font-black text-4xl lg:text-5xl">Fren's Reviews</h1>
+          <h1 className=" text-slate-700 font-black text-4xl lg:text-5xl dark:text-slate-50">Fren's Reviews</h1>
           <Reviews />
         </div>
     </div>
