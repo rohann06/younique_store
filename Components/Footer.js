@@ -8,7 +8,7 @@ const Footer = () => {
       <p className=" font-semibold text-lg lg:text-xl text-slate-600 dark:text-slate-50"> © YOUnique 2022</p>
       <div className=' text-2xl flex justify-center -gap-1 text-slate-700 dark:text-slate-50'>
         <a className=" mx-3.5" href="https://twitter.com/YOUnique__06" target="_blank" rel="noopener noreferrer" ><AiOutlineTwitter /></a> 
-        <a className=" mx-3.5" href="https://www.instagram.com/younique.06/" target="_blank" rel="noopener noreferrer"><AiFillInstagram /></a>
+        <a className=" mx-3.5" href="https://www.instagram.com/younique.store_06/" target="_blank" rel="noopener noreferrer"><AiFillInstagram /></a>
         <a className=" mx-3.5" href="mailto:youniquestore06@gmail.com" target="_blank" rel="noopener noreferrer"><AiFillMail /></a>
       </div>
         <div className=" text-slate-500 text-sm lg:text-base">

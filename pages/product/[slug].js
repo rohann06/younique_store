@@ -1,6 +1,7 @@
 import { client, urlFor } from "../../lib/client";
 import {BsExclamationCircle} from 'react-icons/bs';
 import Reviews from "../../Components/Reviews";
+import BuyForm from "../../Components/BuyForm";
 
 
 const ProductDetails = ({ product }) => {
@@ -23,14 +24,17 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div>
-                <h1 className=" mt-4 text-4xl font-black font-Poppins text-slate-700 lg:mt-0 dark:text-slate-500">{name}</h1>
+                <h1 className=" mt-4 text-4xl font-black text-slate-600 lg:mt-0 dark:text-slate-500">{name}</h1>
                 <h4 className=" text-slate-400 my-1 text-sm  font-semibold lg:text-base dark:text-slate-50">{details}</h4>
                 <h3 className=" my-5 text-2xl font-bold text-red-500">₹{price}</h3>
 
-                <div className=" flex justify-start bg-amber-300/20 p-3 rounded-xl -my-2 text-yellow-500 dark:text-yellow-500">
+                <div className=" flex justify-start bg-amber-300/20 p-3 rounded-xl -my-2 text-yellow-700 dark:text-yellow-500">
                     <BsExclamationCircle className="text-3xl lg:text-lg lg:my-1"/>
-                    <p className=" m-1 text-sm"> Every T-shirt is unique for us and for you also,for that we're not giving any <span className=" font-semibold">"quantity buttons"</span></p>
+                    <p className=" m-1 text-sm"> Every T-shirt is unique for us and for you too, for that we're not giving any <span className=" font-semibold">"quantity buttons"</span></p>
                 </div>
+
+                <BuyForm />
+
             </div>
         </div>
 
