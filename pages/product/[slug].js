@@ -13,7 +13,7 @@ const ProductDetails = ({ product }) => {
         <div className=" flex flex-wrap m-5 lg:flex-row lg:gap-16 lg:m-20"> 
             <div>
                 <div className=" drop-shadow-lg">
-                    <img className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-96 dark:bg-slate-700/50" src={urlFor(image && image[0])} alt="Product Image"/>
+                    <img className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-[450px] dark:bg-slate-700/50" src={urlFor(image && image[0])} alt="Product Image"/>
                 </div>
                 {/* <div>
                     {image?.map((item, i) => {
@@ -24,9 +24,9 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div>
-                <h1 className=" mt-4 text-4xl font-black text-slate-600 lg:mt-0 dark:text-slate-500">{name}</h1>
-                <h4 className=" text-slate-400 my-1 text-sm  font-semibold lg:text-base dark:text-slate-50">{details}</h4>
-                <h3 className=" my-5 text-2xl font-bold text-red-500">₹{price}</h3>
+                <h1 className=" mt-4 text-3xl font-black text-slate-600 lg:mt-0 lg:text-4xl dark:text-slate-50">{name}</h1>
+                <h4 className=" text-slate-400 my-1 text-sm  font-semibold lg:text-base dark:text-slate-500">{details}</h4>
+                <h3 className=" mt-4 mb-3 text-2xl font-bold text-red-500">₹{price}</h3>
 
                 <div className=" flex justify-start bg-amber-300/20 p-3 rounded-xl -my-2 text-yellow-700 dark:text-yellow-500">
                     <BsExclamationCircle className="text-3xl lg:text-lg lg:my-1"/>
