@@ -20,6 +20,10 @@ const BuyForm = () => {
 
                     <label htmlFor="size"><h1 className=" text-slate-600 font-bold text-xl dark:text-slate-50">NFT image Link</h1></label>
                     <input type="text" name="link" placeholder="Enter nft link"  className=" focus:border-red-500 bg-transparent border-[3px] mt-2 p-2 w-full rounded-lg dark:border-slate-500 dark:focus:border-red-500"/>
+
+                    <div>
+                        <button>BUY NOW</button>
+                    </div>
                 </div>
             </form>
         </>
