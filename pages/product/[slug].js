@@ -70,7 +70,7 @@ const ProductDetails = ({ product }) => {
               </li>
               <li className=" flex">
                 <GoPrimitiveDot className=" m-1 text-zinc-500" />
-                Perfect Choice For Summer To Wear With Jeans Or Trosuers.
+                Perfect Choice To Wear With Jeans Or Trosuers.
               </li>
               <li className=" my-2 flex">
                 <GoPrimitiveDot className=" m-1 text-zinc-500" />
