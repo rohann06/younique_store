@@ -1,4 +1,4 @@
-import Layout from "../Components/Layout";
+import Layout from "../Components/Layout/index";
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import GoogleAnalytics from '@bradgarropy/next-google-analytics';

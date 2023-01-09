@@ -1,6 +1,11 @@
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const BuyForm = () => {
+
+  const submitHandler = () => {
+    
+  }
+
   return (
     <>
       <form>
@@ -49,7 +54,7 @@ const BuyForm = () => {
           />
 
           <div className=" text-slate-50 bg-red-500 hover:bg-red-600 cursor-pointer font-semibold rounded-xl w-full text-center mt-5 text-lg">
-            <button className=" scale-100 hover:scale-105 p-[9px]">
+            <button onClick={submitHandler} className=" scale-100 hover:scale-105 p-[9px]">
               BUY NOW
             </button>
           </div>
