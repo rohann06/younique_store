@@ -12,8 +12,8 @@ const ReturnModal = ({isVisble, onClose}) => {
 
                         <button onClick={()=> onClose()} className=" font-bold text-sm border-2 px-2 rounded-md hover:border-red-600 hover:text-red-600">X</button>
                     </div>
-                    <div>
-                        <p></p>
+                    <div className=" my-2 lg:my-5">
+                        <p className=" text-gray-400">The customer can return the product within 10 to 15 days after the purchase, <span className=" text-gray-500 font-semibold">But the responsibility of delivering the product to the company remained with the customer</span>. </p>
                     </div>
                 </div>
             </div>

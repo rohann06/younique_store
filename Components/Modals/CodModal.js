@@ -12,8 +12,8 @@ const CodModal = ({isVisble, onClose}) => {
 
                         <button onClick={()=> onClose()} className=" font-bold text-sm border-2 px-2 rounded-md hover:border-red-600 hover:text-red-600">X</button>
                     </div>
-                    <div>
-                        <p></p>
+                    <div className=" my-2 lg:my-5">
+                        <p className=" text-gray-400"> Cash on delivery <span className="text-gray-500 font-semibold">(COD)</span> is <span className="text-gray-500 font-semibold">not available</span> for any product, the payment will only be accepted in crypto coins mentioned in  check out process</p>
                     </div>
                 </div>
             </div>

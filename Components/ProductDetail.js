@@ -39,13 +39,12 @@ const ProductDetail = ({details, setReturnModal, setDeliveryModal, setCodModal})
 
       <div className="  mt-5 text-red-600 flex justify-around">
         <div className="  hover:cursor-pointer">
-          <div onClick={() => setDeliveryModal(true)} className=" border-red-600 hover:bg-red-600 hover:text-slate-50 border-2 rounded-full absolute  p-3 ml-2 lg:p-3 lg:text-3xl lg:ml-1">
+          <div onClick={() => setDeliveryModal(true)} className=" border-red-600 hover:bg-red-600 hover:text-slate-50 border-2 rounded-full absolute  p-3 lg:p-3 lg:text-3xl lg:ml-1">
             <TbTruckDelivery />
           </div>
           <p className=" text-slate-900 underline text-xs text-center mt-12 lg:mt-[60px] lg:font-bold dark:text-slate-50">
-            Free Delivery
+            Shipping 
           </p>
-          <p className=" text-center">🇮🇳</p>
         </div>
 
         <div className="  hover:cursor-pointer">
@@ -53,7 +52,7 @@ const ProductDetail = ({details, setReturnModal, setDeliveryModal, setCodModal})
             <MdMoneyOff />
           </div>
           <p className=" text-slate-900 underline text-xs text-center mt-12 lg:mt-[60px] lg:font-bold dark:text-slate-50">
-            No C O D
+            Payment
           </p>
         </div>
 
