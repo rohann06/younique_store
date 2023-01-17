@@ -32,9 +32,9 @@ const BuyForm = () => {
                 onClick={() => setSelectedSize(sizes)}
                 className={`border-[3px] ${
                   sizes === selectedSize
-                    ? "border-red-500 text-red-500"
+                    ? "border-red-500 text-red-500 dark:text-red-500 dark:border-red-500"
                     : "text-slate-500/50"
-                } font-semibold rounded-lg py-1 px-3 lg:text-lg mx-1 hover:text-red-500 hover:border-red-500 dark:text-slate-500 dark:border-slate-500 dark:hover:text-red-500 dark:hover:border-red-500`}
+                } font-semibold rounded-lg py-1 px-3 lg:text-lg mx-1 dark:text-slate-500 dark:border-slate-500 `}
               >
                 {sizes}
               </button>
