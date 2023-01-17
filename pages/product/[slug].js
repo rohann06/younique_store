@@ -15,12 +15,15 @@ import ProductComp from "../../Components/ProductComp";
 import CheckoutComp from "../../Components/CheckoutComp";
 
 const ProductDetails = ({ product }) => {
-  
+  const [activeState, setActiveState] = useState(0);
 
   return (
     <Fragment>
-      <ProductComp product={product}/>
-      <CheckoutComp />
+      {activeState == 0 ? (
+        <ProductComp setActiveState={setActiveState} product={product} />
+      ) : (
+        <CheckoutComp />
+      )}
     </Fragment>
   );
 };

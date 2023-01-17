@@ -9,7 +9,7 @@ import Reviews from "./Reviews";
 import SizeAndLinkForm from './SizeAndLinkForm';
 
 
-const ProductComp = ({product}) => {
+const ProductComp = ({product, setActiveState}) => {
 
   const { image, name, details, price, mainprice } = product;
 
@@ -58,7 +58,7 @@ const ProductComp = ({product}) => {
               </p>
             </div>
 
-            <SizeAndLinkForm />
+            <SizeAndLinkForm setActiveState={setActiveState}/>
           </div>
 
           {/* Prodct details*/}

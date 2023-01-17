@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const BuyForm = () => {
+const BuyForm = ({setActiveState}) => {
   const size = ["S", "M", "L", "XL", "XXL", "XXXL"];
 
   const [selectedSize, setSelectedSize] = useState(size[0]);
@@ -15,6 +15,7 @@ const BuyForm = () => {
     e.preventDefault();
     const isvalid = regex.test(nftUrl);
     console.log("isvalid", isvalid);
+    setActiveState(1);
   };
 
   return (

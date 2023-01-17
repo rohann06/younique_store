@@ -4,7 +4,7 @@ import pic1 from "../public/1.jpg";
 const CheckoutComp = () => {
   return (
     <form action="submit">
-      <div className=" bg-neutral-200 dark:bg-slate-800 rounded-xl py-7 grid lg:grid-cols-2 lg:grid-flow">
+      <div className=" bg-neutral-200 dark:bg-slate-800 rounded-xl py-7 grid lg:grid-cols-2 lg:grid-flow mt-5 lg:my-32">
         <div className=" border-b-2 lg:border-b-0 lg:border-l-2 border-neutral-300 mx-5 lg:order-2">
 
           {/* Product details */}
