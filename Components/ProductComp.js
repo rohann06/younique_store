@@ -6,11 +6,9 @@ import DeliveryModal from "./Modals/DeliveryModal";
 import ReturnModal from "./Modals/ReturnModal";
 import ProductDetail from "./ProductDetail";
 import Reviews from "./Reviews";
-import SizeAndLinkForm from './SizeAndLinkForm';
+import SizeAndLinkForm from "./SizeAndLinkForm";
 
-
-const ProductComp = ({product, setActiveState}) => {
-
+const ProductComp = ({ product, setActiveState, setSize, setLink }) => {
   const { image, name, details, price, mainprice } = product;
 
   //Modal state
@@ -18,6 +16,14 @@ const ProductComp = ({product, setActiveState}) => {
   const [deliveryModal, setDeliveryModal] = useState(false);
   const [codModal, setCodModal] = useState(false);
 
+  const [productSize, setProductSize] = useState();
+  const [productLink, setProductLink] = useState();
+
+  function getSizeAndLink(nftUrl, selectedSize) {
+    setSize(selectedSize);
+    setLink(nftUrl);
+  }
+  
   return (
     <>
       <div>
@@ -58,7 +64,7 @@ const ProductComp = ({product, setActiveState}) => {
               </p>
             </div>
 
-            <SizeAndLinkForm setActiveState={setActiveState}/>
+            <SizeAndLinkForm getSizeAndLink={getSizeAndLink} setActiveState={setActiveState} />
           </div>
 
           {/* Prodct details*/}

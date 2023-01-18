@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const BuyForm = ({setActiveState}) => {
+const BuyForm = ({ setActiveState, getSizeAndLink }) => {
   const size = ["S", "M", "L", "XL", "XXL", "XXXL"];
 
   const [selectedSize, setSelectedSize] = useState(size[0]);
@@ -9,13 +9,22 @@ const BuyForm = ({setActiveState}) => {
 
   var expression =
     "https?://(?:www.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|www.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|https?://(?:www.|(?!www))[a-zA-Z0-9]+.[^s]{2,}|www.[a-zA-Z0-9]+.[^s]{2,}";
+
   var regex = new RegExp(expression);
+
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     const isvalid = regex.test(nftUrl);
-    console.log("isvalid", isvalid);
-    setActiveState(1);
+
+    {
+      isvalid == false ? alert("Enter the valid URL") : setActiveState(1);
+    }
+
+    getSizeAndLink(nftUrl, selectedSize);
+    
   };
 
   return (
