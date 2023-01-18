@@ -16,9 +16,6 @@ const ProductComp = ({ product, setActiveState, setSize, setLink }) => {
   const [deliveryModal, setDeliveryModal] = useState(false);
   const [codModal, setCodModal] = useState(false);
 
-  const [productSize, setProductSize] = useState();
-  const [productLink, setProductLink] = useState();
-
   function getSizeAndLink(nftUrl, selectedSize) {
     setSize(selectedSize);
     setLink(nftUrl);
