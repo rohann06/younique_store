@@ -4,8 +4,9 @@ import HeroBanner from "../Components/HeroBanner";
 import Products from "../Components/Products";
 import { client } from "../lib/client";
 
+import { createClient } from "@supabase/supabase-js";
 
-export default function Home({products, bannerData}) {
+export default function Home({ products, bannerData }) {
   return (
     <div>
       <Head>
@@ -16,19 +17,23 @@ export default function Home({products, bannerData}) {
       </Head>
 
       <main>
-
         {/* Hero Banner */}
-        <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
+        <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
         <div className=" text-center mt-20 lg:mt-10 mb-10">
-          <h1 className=" text-slate-700 font-black text-4xl dark:text-slate-600">Products</h1>
+          <h1 className=" text-slate-700 font-black text-4xl dark:text-slate-600">
+            Products
+          </h1>
           <p className=" text-slate-400 my-1 text-lg font-semibold">
             All clothing options for your NFTs.
           </p>
         </div>
 
         {/* Products */}
-        <div id="products" className="grid grid-cols-2 gap-10 p-5  lg:grid-cols-4">
+        <div
+          id="products"
+          className="grid grid-cols-2 gap-10 p-5  lg:grid-cols-4"
+        >
           {products?.map((product) => (
             <Products key={product._id} product={product} />
           ))}
@@ -36,7 +41,7 @@ export default function Home({products, bannerData}) {
 
         {/* Footer Banner */}
         <div className=" flex justify-center">
-         <FooterBanner heroBanner={bannerData.length && bannerData[0]} />
+          <FooterBanner heroBanner={bannerData.length && bannerData[0]} />
         </div>
       </main>
     </div>

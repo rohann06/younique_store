@@ -1,7 +1,16 @@
 import { urlFor } from "../lib/client";
+import { createClient } from "@supabase/supabase-js";
 
 const CheckoutComp = ({ product, size, link }) => {
   const { image, name, price } = product;
+
+  // SupaBase
+  const supabaseUrl = process.env.NEXT_PUBLIC_APP_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_APP_SUPABASE_ANON_KEY;
+
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  console.log(supabase);
 
   return (
     <form action="submit">
