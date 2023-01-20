@@ -18,7 +18,7 @@ const ProductDetails = ({ product }) => {
   const [activeState, setActiveState] = useState(0);
   const [size, setSize] = useState('S')
   const [link, setLink] = useState ( )
-
+  
   return (
     <Fragment>
       {activeState == 0 ? (

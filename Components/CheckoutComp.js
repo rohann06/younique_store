@@ -1,19 +1,47 @@
 import { urlFor } from "../lib/client";
 import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../supabseClient";
+import { useState } from "react";
 
 const CheckoutComp = ({ product, size, link }) => {
-  const { image, name, price } = product;
+  const { image, name, price, _id } = product;
 
-  // SupaBase
-  const supabaseUrl = process.env.NEXT_PUBLIC_APP_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_APP_SUPABASE_ANON_KEY;
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userMobileNumber, setUserMobileNumber] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [fullAddress, setFullAddress] = useState("");
 
-  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const res = await supabase
+      .from("orders")
+      .insert([
+        {
+          name: userName,
+          productName: name,
+          productId: _id,
+          emailAddress: email,
+          size: size,
+          mobileNumber: userMobileNumber,
+          pinCode: pincode,
+          Country: country,
+          city: city,
+          address: fullAddress,
+          nftLink: link,
+          shippingPrice: 30,
+          totalPrice: 70,
+        },
+      ])
+      
 
-  console.log(supabase);
+    console.log(res);
+  };
 
   return (
-    <form action="submit">
+    <form action="submit" onSubmit={submitHandler}>
       <div className=" bg-neutral-200 dark:bg-slate-800 rounded-xl py-7 grid lg:grid-cols-2 lg:grid-flow mt-5 lg:my-32">
         <div className=" border-b-2 lg:border-b-0 lg:border-l-2 border-neutral-300 mx-5 lg:order-2">
           {/* Product details */}
@@ -52,10 +80,10 @@ const CheckoutComp = ({ product, size, link }) => {
             </div>
             <div>
               <p className=" text-neutral-500 mb-1 font-semibold lg:text-lg">
-                shipping price
+                30$
               </p>
               <p className=" text-red-600 font-black text-xl lg:text-2xl">
-                Total Price
+                70$
               </p>
             </div>
           </div>
@@ -65,6 +93,8 @@ const CheckoutComp = ({ product, size, link }) => {
         <div className=" mx-5 my-5 lg:mx-14">
           <p className=" mt-4 text-sm lg:text-base">Full name</p>
           <input
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
             placeholder=" full name"
             type="text"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
@@ -72,6 +102,8 @@ const CheckoutComp = ({ product, size, link }) => {
 
           <p className=" mt-4 text-sm lg:text-base">Email Address</p>
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="email address"
             type="email"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
@@ -79,6 +111,8 @@ const CheckoutComp = ({ product, size, link }) => {
 
           <p className=" mt-4 text-sm lg:text-base">Mobile number</p>
           <input
+            value={userMobileNumber}
+            onChange={(e) => setUserMobileNumber(e.target.value)}
             type="tel"
             placeholder="+91 9726698451"
             pattern="+[0-9]{2} [0-9]{3}[0-9]{3}[0-9]{4}"
@@ -89,6 +123,8 @@ const CheckoutComp = ({ product, size, link }) => {
             <div>
               <p className=" text-sm lg:text-base">pincode</p>
               <input
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
                 placeholder="pin code"
                 type="text"
                 className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
@@ -97,6 +133,8 @@ const CheckoutComp = ({ product, size, link }) => {
             <div>
               <p className=" text-sm lg:text-base">Country</p>
               <input
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
                 placeholder="country"
                 type="text"
                 className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
@@ -105,6 +143,8 @@ const CheckoutComp = ({ product, size, link }) => {
             <div>
               <p className=" text-sm lg:text-base ">City</p>
               <input
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 placeholder="city"
                 type="text"
                 className=" dark:bg-slate-700/50 bg-neutral-300 w-[170px] rounded-lg h-9 p-4 lg:h-10 lg:w-[235px]"
@@ -114,6 +154,8 @@ const CheckoutComp = ({ product, size, link }) => {
 
           <p className=" mt-4 text-sm lg:text-base">Full Address</p>
           <textarea
+            value={fullAddress}
+            onChange={(e) => setFullAddress(e.target.value)}
             placeholder=" Enter you'r  full correct address..."
             rows="10"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-10 pl-4 lg:h-10"
