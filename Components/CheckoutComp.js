@@ -16,27 +16,25 @@ const CheckoutComp = ({ product, size, link }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await supabase
-      .from("orders")
-      .insert([
-        {
-          name: userName,
-          productName: name,
-          productId: _id,
-          emailAddress: email,
-          size: size,
-          mobileNumber: userMobileNumber,
-          pinCode: pincode,
-          Country: country,
-          city: city,
-          address: fullAddress,
-          nftLink: link,
-          shippingPrice: 30,
-          totalPrice: 70,
-        },
-      ])
-      
-
+    console.log(supabase);
+    const res = await supabase.from("orders").insert([
+      {
+        name: userName,
+        productName: name,
+        productId: _id,
+        emailAddress: email,
+        size: size,
+        mobileNumber: userMobileNumber,
+        pinCode: pincode,
+        country: country,
+        city: city,
+        address: fullAddress,
+        nftLink: link,
+        shippingPrice: 30,
+        totalPrice: 70,
+      },
+    ]);
+    
     console.log(res);
   };
 
@@ -56,7 +54,7 @@ const CheckoutComp = ({ product, size, link }) => {
 
             <div>
               <p className=" font-SecularOne dark:text-slate-100 font-bold text-xl lg:text-2xl">
-                {name}
+                {name} 
               </p>
               <p className=" text-red-600 font-extrabold lg:text-lg mb-2 lg:mb-4">
                 ₹{price}
@@ -93,8 +91,9 @@ const CheckoutComp = ({ product, size, link }) => {
         <div className=" mx-5 my-5 lg:mx-14">
           <p className=" mt-4 text-sm lg:text-base">Full name</p>
           <input
-            value={userName}
+            value={ userName }
             onChange={(e) => setUserName(e.target.value)}
+            required
             placeholder=" full name"
             type="text"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
@@ -102,16 +101,17 @@ const CheckoutComp = ({ product, size, link }) => {
 
           <p className=" mt-4 text-sm lg:text-base">Email Address</p>
           <input
-            value={email}
+            value={ email }
             onChange={(e) => setEmail(e.target.value)}
+            required
             placeholder="email address"
             type="email"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
           />
 
-          <p className=" mt-4 text-sm lg:text-base">Mobile number</p>
+          <p className=" mt-4 text-sm lg:text-base">Mobile number (optional)</p>
           <input
-            value={userMobileNumber}
+            value={ userMobileNumber }
             onChange={(e) => setUserMobileNumber(e.target.value)}
             type="tel"
             placeholder="+91 9726698451"
@@ -121,41 +121,47 @@ const CheckoutComp = ({ product, size, link }) => {
 
           <div className=" grid grid-cols-2 gap-7 lg:grid-cols-3 mt-5">
             <div>
-              <p className=" text-sm lg:text-base">pincode</p>
+              <p className=" text-sm lg:text-base">PIN/ZIP code</p>
               <input
-                value={pincode}
+                value={ pincode }
                 onChange={(e) => setPincode(e.target.value)}
+                required
                 placeholder="pin code"
                 type="text"
                 className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
               />
             </div>
-            <div>
-              <p className=" text-sm lg:text-base">Country</p>
-              <input
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                placeholder="country"
-                type="text"
-                className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
-              />
-            </div>
+
             <div>
               <p className=" text-sm lg:text-base ">City</p>
               <input
-                value={city}
+                value={ city }
                 onChange={(e) => setCity(e.target.value)}
+                required
                 placeholder="city"
                 type="text"
                 className=" dark:bg-slate-700/50 bg-neutral-300 w-[170px] rounded-lg h-9 p-4 lg:h-10 lg:w-[235px]"
+              />
+            </div>
+
+            <div>
+              <p className=" text-sm lg:text-base">Country</p>
+              <input
+                value={ country }
+                onChange={(e) => setCountry(e.target.value)}
+                required
+                placeholder="country"
+                type="text"
+                className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-9 p-4 lg:h-10"
               />
             </div>
           </div>
 
           <p className=" mt-4 text-sm lg:text-base">Full Address</p>
           <textarea
-            value={fullAddress}
+            value={ fullAddress }
             onChange={(e) => setFullAddress(e.target.value)}
+            required
             placeholder=" Enter you'r  full correct address..."
             rows="10"
             className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-10 pl-4 lg:h-10"
