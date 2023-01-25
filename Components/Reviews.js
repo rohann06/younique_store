@@ -9,7 +9,7 @@ const Reviews = () => {
           <strong className=" font-semibold text-slate-700 dark:text-slate-500">
             <a href="https://twitter.com/YOUnique__06"> @YOUnique__06 </a>
           </strong>
-          and you also can use our hashtag <strong className=" font-semibold text-slate-700 dark:text-slate-500">#NFT #FashionTech #YouniqueTshirts</strong>. Thank
+          and you also can use our hashtag <strong className=" font-semibold text-slate-700 dark:text-slate-500">#NFT #FashionTech #YouniqueTshirts </strong>. Thank
           you! for giving us your honest opinion
         </p>
       </div>
