@@ -5,6 +5,7 @@ import Products from "../Components/Products";
 import { client } from "../lib/client";
 
 import { createClient } from "@supabase/supabase-js";
+import OfferBanner from "../Components/OfferBanner";
 
 export default function Home({ products, bannerData }) {
   return (
@@ -37,6 +38,11 @@ export default function Home({ products, bannerData }) {
           {products?.map((product) => (
             <Products key={product._id} product={product} />
           ))}
+        </div>
+
+        {/* Offer banner */}
+        <div>
+          <OfferBanner/>
         </div>
 
         {/* Footer Banner */}
