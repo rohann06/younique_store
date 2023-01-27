@@ -28,7 +28,7 @@ const ProductComp = ({ product, setActiveState, setSize, setLink }) => {
           <div>
             <div className=" drop-shadow-lg">
               <img
-                className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-[450px] dark:bg-slate-700/50"
+                className=" bg-neutral-200 hover:bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 cursor-pointer rounded-3xl p-3 w-auto lg:max-h-[450px] dark:bg-slate-700/50"
                 src={urlFor(image && image[0])}
                 alt="Product Image"
               />
@@ -43,7 +43,7 @@ const ProductComp = ({ product, setActiveState, setSize, setLink }) => {
               {details}
             </h4>
             <div className=" flex gap-3 mb-5">
-              <h3 className=" mt-4  text-2xl font-bold text-red-500">
+              <h3 className=" mt-4  text-2xl font-bold text-red-600">
                 ₹{price}
               </h3>
               <p className=" text-slate-400 text-[20px] line-through decoration-2 mt-4">

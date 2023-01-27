@@ -36,13 +36,13 @@ export default function Home({ products, bannerData }) {
           className="grid grid-cols-2 gap-10 p-5  lg:grid-cols-4"
         >
           {products?.map((product) => (
-            <Products key={product._id} product={product} />
+            <Products  key={product._id} product={product} />
           ))}
         </div>
 
         {/* Offer banner */}
         <div>
-          <OfferBanner/>
+          <OfferBanner />
         </div>
 
         {/* Footer Banner */}

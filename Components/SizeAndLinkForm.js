@@ -42,7 +42,7 @@ const BuyForm = ({ setActiveState, getSizeAndLink }) => {
                 onClick={() => setSelectedSize(sizes)}
                 className={`border-[3px] ${
                   sizes === selectedSize
-                    ? "border-red-500 text-red-500 dark:text-red-500 dark:border-red-500"
+                    ? "border-red-600 text-red-600 dark:text-red-600 dark:border-red-600"
                     : "text-slate-500/50"
                 } font-semibold rounded-lg py-1 px-3 lg:text-lg mx-1 dark:text-slate-500 dark:border-slate-500 `}
               >
@@ -67,7 +67,7 @@ const BuyForm = ({ setActiveState, getSizeAndLink }) => {
           />
           <button
             type="submit"
-            className=" scale-100 hover:scale-105 p-[9px] text-slate-50 bg-red-500 hover:bg-red-600 cursor-pointer font-semibold rounded-xl w-full text-center mt-5 text-lg"
+            className=" scale-100 hover:scale-105 p-[9px] text-slate-50 bg-red-600 hover:bg-red-700 cursor-pointer font-semibold rounded-xl w-full text-center mt-5 text-lg"
           >
             BUY NOW
           </button>

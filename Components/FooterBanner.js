@@ -54,14 +54,14 @@ const FooterBanner = ({ heroBanner }) => {
         </div>
 
         <div className=" lg:py-20">
-          <h1 className=" text-zinc-400/50 font-bold text-5xl lg:text-8xl lg:my-5 lg:w-50 dark:text-slate-600">
+          <h1 className=" text-zinc-500 font-bold text-5xl lg:text-8xl lg:my-5 lg:w-50 dark:text-slate-600">
             {heroBanner.footerhaeding}
           </h1>
           <h2 className=" text-slate-500/75 font-Poppins font-extrabold text-sm mb-5 mt-5 lg:text-xl lg:mt-5 dark:text-slate-50">
             {heroBanner.footertext}
           </h2>
           <Link href={"/product/black-t-shirt"}>
-          <button className=" bg-red-500 text-white font-Poppins px-5 py-2 rounded-xl">BUY NOW</button></Link>
+          <button className=" bg-red-600 text-white font-Poppins px-5 py-2 rounded-xl">BUY NOW</button></Link>
         </div>
       </div>
     </div>
