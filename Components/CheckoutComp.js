@@ -63,6 +63,7 @@ const CheckoutComp = ({ product, size, link }) => {
     // console.log(supabase);
     const res = await supabase.from("orders").insert([
       {
+        user_id:address,
         name: userName,
         productName: name,
         productId: _id,
