@@ -39,16 +39,16 @@ const FooterBanner = ({ heroBanner }) => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <Image layout="fill" src={pic1} alt="p1" />
+              <Image  src={pic1} alt="p1" height='auto' width='auto'/>
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={pic3} alt="p2" />
+              <Image  src={pic3} alt="p2" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={pic2} alt="p3" />
+              <Image  src={pic2} alt="p3" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={pic4} alt="p4" />
+              <Image  src={pic4} alt="p4" />
             </SwiperSlide>
           </Swiper>
         </div>
