@@ -56,7 +56,10 @@ const CheckoutComp = ({ product, size, link }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     await write();
-
+    if (!isSuccess) {
+      alert("Transaction failed");
+      return;
+    }
     // console.log(supabase);
     const res = await supabase.from("orders").insert([
       {
@@ -64,6 +67,7 @@ const CheckoutComp = ({ product, size, link }) => {
         productName: name,
         productId: _id,
         emailAddress: email,
+        address,
         size: size,
         mobileNumber: userMobileNumber,
         pinCode: pincode,
