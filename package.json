@@ -22,7 +22,6 @@
     "next": "12.1.0",
     "next-sanity-image": "^5.0.0",
     "next-themes": "^0.2.1",
-    "node": "^18.13.0",
     "npx": "^10.2.2",
     "react": "^17.0.2",
     "react-confetti": "^6.1.0",
