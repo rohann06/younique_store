@@ -2,15 +2,15 @@ import GoogleAnalytics from "@bradgarropy/next-google-analytics";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ThemeProvider } from "next-themes";
-import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { localhost, mainnet } from "wagmi/chains";
+import { configureChains, createClient, goerli, WagmiConfig } from "wagmi";
+import { hardhat, localhost, mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import Layout from "../Components/Layout/index";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const { chains, provider } = configureChains(
-    [mainnet, localhost],
+    [goerli, hardhat],
     [publicProvider()]
   );
 
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
     connectors,
     provider,
   });
-  
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>

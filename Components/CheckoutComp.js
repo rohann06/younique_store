@@ -3,7 +3,9 @@ import { createClient } from "@supabase/supabase-js";
 import { supabase } from "../supabseClient";
 import { useEffect, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
+import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi";
+import Treasury from "../artifacts/contracts/Contract.sol/Treasury.json";
+import { ethers } from "ethers";
 
 const CheckoutComp = ({ product, size, link }) => {
   const { image, name, price, _id } = product;
@@ -34,9 +36,28 @@ const CheckoutComp = ({ product, size, link }) => {
     }
   }, [userName, email, userMobileNumber, pincode, country, city, fullAddress]);
 
+  const { config } = usePrepareContractWrite({
+    address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    abi: Treasury.abi,
+    functionName: "payment",
+    overrides: {
+      value: ethers.utils.parseEther("0.001"),
+    },
+  });
+  const { data, isLoading, isSuccess, write } = useContractWrite(config);
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log("success");
+    }
+    console.log("tx data", data);
+  }, [data, isSuccess]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(supabase);
+    await write();
+
+    // console.log(supabase);
     const res = await supabase.from("orders").insert([
       {
         name: userName,
@@ -186,7 +207,7 @@ const CheckoutComp = ({ product, size, link }) => {
             required
             placeholder=" Enter you'r full correct address..."
             rows="10"
-            className=" dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-10 pl-4 lg:h-10"
+            className="dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-10 pl-4 lg:h-10"
           />
           <div className=" text-center mt-5 lg:mt-8">
             {!isConnected ? (
@@ -196,7 +217,7 @@ const CheckoutComp = ({ product, size, link }) => {
             ) : (
               <button
                 className={`bg-red-500 text-slate-50 rounded-lg font-medium font-Poppins px-12 py-2 lg:text-lg lg:hover:bg-red-700 ${
-                  disableButton && "cursor-not-allowed bg-red-400"
+                  (disableButton || !write) && "cursor-not-allowed bg-red-400"
                 }`}
               >
                 Pay and Place order
