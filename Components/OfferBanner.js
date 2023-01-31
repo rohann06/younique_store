@@ -1,5 +1,5 @@
 import Image from "next/image";
-import offerImage from "../public/offerImage.png";
+// import offerImage from "../public/offerImage.png";
 import Confetti from "react-confetti";
 
 const OfferBanner = () => {
@@ -21,7 +21,7 @@ const OfferBanner = () => {
           </div>
 
           <div>
-            <Image src={offerImage} alt="offer image" />  
+            <Image layout="fill" src={'/offerImage.png'} alt="offer image" />
           </div>
         </div>
       </div>

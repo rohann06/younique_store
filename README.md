@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# YOUnique store 👕
+#### This is a E-commerce clothing website I'm using for my own business 
+#### The intension behind this project was to lrarn about the full stack development, and also start a small side business 
 
-## Getting Started
+## Live application
+[![Already deployed version](https://vercel.com/button)](https://younique.vercel.app/)
 
-First, run the development server:
+## Technologies used
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+I've used ![Supabase](https://supabase.com/) to store the customer data and ![Sanity](https://www.sanity.io/) to store the website data like image,productName, bannerHeadings and for the payment I've used the meta mask to pay the bill in crypto. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **NextJs**
+- **Tailwind css**
+- **Framer motion**
+- **Supabase**
+- **Sanity**
+- **canvas-confetti**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Functionality
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+There are 4 pages in this website 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+### Home page
+#### in the Home page users can find all the products in the product section
+![younique_image](https://user-images.githubusercontent.com/75326769/215558059-e656bc4b-4a2b-407d-9ea7-a99c9c35f160.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Product detail page
+#### After clicking on any product users will come to the product details page
+![Screenshot 2023-01-30 232909](https://user-images.githubusercontent.com/75326769/215558420-1b0d0894-bf7d-42c3-abc7-8d527f49d4cf.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Checkout page
+#### After adding the size and the Link of the NFT user will come to the checkout page where user need to fill all the shipping details.
+![Screenshot 2023-01-30 232931](https://user-images.githubusercontent.com/75326769/215559435-ba709775-670c-479b-8189-1f8ada7334e5.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Support page
+#### This page is for any type of support customer needs
+![Screenshot 2023-01-30 232947](https://user-images.githubusercontent.com/75326769/215559970-d9c9cee4-f41b-4288-9bad-bf6eb174e96c.png)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
