@@ -39,7 +39,7 @@ const FooterBanner = ({ heroBanner }) => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <Image  src={pic1} alt="p1" height='auto' width='auto'/>
+              <Image  src={pic1} alt="p1" />
             </SwiperSlide>
             <SwiperSlide>
               <Image  src={pic3} alt="p2" />
