@@ -37,7 +37,7 @@ const CheckoutComp = ({ product, size, link }) => {
   }, [userName, email, userMobileNumber, pincode, country, city, fullAddress]);
 
   const { config } = usePrepareContractWrite({
-    address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    address: "0x533D29e0AC9C83760626B5C5064B54Eba521ae43",
     abi: Treasury.abi,
     functionName: "payment",
     overrides: {
