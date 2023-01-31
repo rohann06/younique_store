@@ -21,7 +21,7 @@ const OfferBanner = () => {
           </div>
 
           <div>
-            <Image src={offerImage} alt="offer image" />
+            <Image src={offerImage} alt="offer image" />  
           </div>
         </div>
       </div>
