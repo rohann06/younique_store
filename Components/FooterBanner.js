@@ -11,10 +11,10 @@ import Link from "next/link";
 
 //Images
 import Image from "next/image";
-// import pic1 from "../public/1.jpg";
-// import pic2 from "../public/2.jpg";
-// import pic3 from "../public/3.jpg";
-// import pic4 from "../public/4.jpg";
+import pic1 from "../public/1.jpg";
+import pic2 from "../public/2.jpg";
+import pic3 from "../public/3.jpg";
+import pic4 from "../public/4.jpg";
 
 const FooterBanner = ({ heroBanner }) => {
   return (
@@ -39,16 +39,16 @@ const FooterBanner = ({ heroBanner }) => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <Image layout="fill" src={'/1.jpg'} alt="p1" />
+              <Image layout="fill" src={pic1} alt="p1" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={'/2.jpg'} alt="p2" />
+              <Image layout="fill" src={pic2} alt="p2" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={'/3.jpg'} alt="p3" />
+              <Image layout="fill" src={pic3} alt="p3" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image layout="fill" src={'/4.jpg'} alt="p4" />
+              <Image layout="fill" src={pic4} alt="p4" />
             </SwiperSlide>
           </Swiper>
         </div>
