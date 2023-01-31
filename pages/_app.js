@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
     connectors,
     provider,
   });
+  
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
