@@ -11,7 +11,7 @@ const Products = ({ product: { image, name, slug, price, mainprice} }) => {
             <h4 className=" text-slate-800 font-semibold text-xl mt-3 lg:text-2xl dark:text-slate-400">{name}</h4>
             <div className=" flex lg:mt-1 ">
               <p className=" font-extrabold text-lg mt-0.5">${price}</p>
-              <p className=" text-slate-500 text-[20px] line-through decoration-2 ml-2 lg:ml-5">₹{mainprice}</p>
+              <p className=" text-slate-500 text-[20px] line-through decoration-2 ml-2 lg:ml-5">${mainprice}</p>
             </div>
           </div>
         </Link>
