@@ -21,7 +21,7 @@ const CheckoutComp = ({ product, size, link }) => {
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
 
-  const totalPrice = 3 + price;
+  const totalPrice = 5 + price;
   useEffect(() => {
     if (
       userName &&
@@ -42,7 +42,7 @@ const CheckoutComp = ({ product, size, link }) => {
     abi: Treasury.abi,
     functionName: "payment",
     overrides: {
-      value: ethers.utils.parseEther("0.001"),
+      value: ethers.utils.parseEther(totalPrice),
     },
   });
   const { data, isLoading, isSuccess, write } = useContractWrite(config);
@@ -77,8 +77,8 @@ const CheckoutComp = ({ product, size, link }) => {
         city: city,
         address: fullAddress,
         nftLink: link,
-        shippingPrice: 30,
-        totalPrice: 70,
+        shippingPrice: 5,
+        totalPrice: totalPrice  ,
       },
     ]);
 
@@ -125,7 +125,7 @@ const CheckoutComp = ({ product, size, link }) => {
             </div>
             <div>
               <p className=" text-neutral-500 mb-1 font-semibold lg:text-lg">
-                3$
+                5$
               </p>
               <p className=" text-red-600 font-black text-xl lg:text-2xl">
                 ${totalPrice}
@@ -222,8 +222,8 @@ const CheckoutComp = ({ product, size, link }) => {
               </div>
             ) : (
               <button
-                className={`bg-red-500 text-slate-50 rounded-lg font-medium font-Poppins px-12 py-2 lg:text-lg lg:hover:bg-red-700 ${
-                  (disableButton || !write) && "cursor-not-allowed bg-red-400"
+                className={`bg-red-600 text-slate-50 rounded-lg font-medium font-Poppins px-12 py-2 lg:text-lg lg:hover:bg-red-700 ${
+                  (disableButton || !write) && "cursor-not-allowed bg-red-600"
                 }`}
               >
                 Pay and Place order
