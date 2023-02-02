@@ -230,7 +230,7 @@ const CheckoutComp = ({ product, size, link }) => {
             required
             placeholder=" Enter you'r full correct address..."
             rows="10"
-            className="dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-10 pl-4 lg:h-10"
+            className="dark:bg-slate-700/50 bg-neutral-300 w-full rounded-lg h-[5rem] pl-4 lg:h-10"
           />
           <div className=" text-center mt-5 lg:mt-8">
             {!isConnected ? (
