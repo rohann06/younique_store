@@ -21,7 +21,7 @@ const CheckoutComp = ({ product, size, link }) => {
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
 
-  const totalPrice = 3 + {price};
+  const totalPrice = 3 + price;
   useEffect(() => {
     if (
       userName &&
