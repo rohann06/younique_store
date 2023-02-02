@@ -17,11 +17,20 @@ const CheckoutComp = ({ product, size, link }) => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [fullAddress, setFullAddress] = useState("");
+  const [ethAmount, setEthAmout] = useState();
 
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
 
   const totalPrice = 5 + price;
+
+  const convert = async () => {
+    const res = await fetch(
+      `https://api.coinconvert.net/convert/eth/usd?amount=1`
+    );
+    console.log(res);
+  };
+
   useEffect(() => {
     if (
       userName &&
@@ -37,12 +46,16 @@ const CheckoutComp = ({ product, size, link }) => {
     }
   }, [userName, email, userMobileNumber, pincode, country, city, fullAddress]);
 
+  useEffect(() => {
+    convert();
+  }, []);
+
   const { config } = usePrepareContractWrite({
     address: "0x533D29e0AC9C83760626B5C5064B54Eba521ae43",
     abi: Treasury.abi,
     functionName: "payment",
     overrides: {
-      value: ethers.utils.parseEther(totalPrice),
+      value: ethers.utils.parseEther(totalPrice.toString()),
     },
   });
   const { data, isLoading, isSuccess, write } = useContractWrite(config);
@@ -64,7 +77,7 @@ const CheckoutComp = ({ product, size, link }) => {
     // console.log(supabase);
     const res = await supabase.from("orders").insert([
       {
-        user_id:address,
+        user_id: address,
         name: userName,
         productName: name,
         productId: _id,
@@ -78,7 +91,7 @@ const CheckoutComp = ({ product, size, link }) => {
         address: fullAddress,
         nftLink: link,
         shippingPrice: 5,
-        totalPrice: totalPrice  ,
+        totalPrice: totalPrice,
       },
     ]);
 
@@ -107,7 +120,10 @@ const CheckoutComp = ({ product, size, link }) => {
                 ${price}
               </p>
               <p className="  text-neutral-400">
-                Size: <span className=" font-bold text-black dark:text-slate-50">( {size} )</span>
+                Size:{" "}
+                <span className=" font-bold text-black dark:text-slate-50">
+                  ( {size} )
+                </span>
               </p>
               {/* <p  className="  text-neutral-400">Nft Link: {link}</p> */}
             </div>
