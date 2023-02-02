@@ -83,7 +83,7 @@ const CheckoutComp = ({ product, size, link }) => {
         productName: name,
         productId: _id,
         emailAddress: email,
-        walletAddress: address,
+        address,
         size: size,
         mobileNumber: userMobileNumber,
         pinCode: pincode,
