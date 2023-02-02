@@ -6,6 +6,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi";
 import Treasury from "../artifacts/contracts/Contract.sol/Treasury.json";
 import { ethers } from "ethers";
+import { cryptoConvert } from "../uitls";
 
 const CheckoutComp = ({ product, size, link }) => {
   const { image, name, price, _id } = product;
@@ -21,15 +22,18 @@ const CheckoutComp = ({ product, size, link }) => {
 
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
+  const [priceInEth, setPriceInEth] = useState(price + 5);
 
-  const totalPrice = 5 + price;
-
-  const convert = async () => {
-    const res = await fetch(
-      `https://api.coinconvert.net/convert/eth/usd?amount=1`
-    );
-    console.log(res);
+  const getEthPrice = async () => {
+    await cryptoConvert.ready();
+    const priceInEth = cryptoConvert.USD.ETH(price);
+    setPriceInEth(priceInEth);
+    console.log('priceInEth: ', priceInEth);
   };
+
+  useEffect(() => {
+    getEthPrice();
+  }, [price]);
 
   useEffect(() => {
     if (
@@ -46,16 +50,12 @@ const CheckoutComp = ({ product, size, link }) => {
     }
   }, [userName, email, userMobileNumber, pincode, country, city, fullAddress]);
 
-  useEffect(() => {
-    convert();
-  }, []);
-
   const { config } = usePrepareContractWrite({
     address: "0x533D29e0AC9C83760626B5C5064B54Eba521ae43",
     abi: Treasury.abi,
     functionName: "payment",
     overrides: {
-      value: ethers.utils.parseEther(totalPrice.toString()),
+      value: ethers.utils.parseEther(priceInEth.toString()),
     },
   });
   const { data, isLoading, isSuccess, write } = useContractWrite(config);
@@ -69,6 +69,7 @@ const CheckoutComp = ({ product, size, link }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     await write();
     if (!isSuccess) {
       alert("Transaction failed");
@@ -91,7 +92,7 @@ const CheckoutComp = ({ product, size, link }) => {
         address: fullAddress,
         nftLink: link,
         shippingPrice: 5,
-        totalPrice: totalPrice,
+        totalPrice: price,
       },
     ]);
 
@@ -144,7 +145,7 @@ const CheckoutComp = ({ product, size, link }) => {
                 5$
               </p>
               <p className=" text-red-600 font-black text-xl lg:text-2xl">
-                ${totalPrice}
+                ${price}
               </p>
             </div>
           </div>
