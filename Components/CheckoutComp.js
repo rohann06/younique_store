@@ -21,6 +21,7 @@ const CheckoutComp = ({ product, size, link }) => {
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
 
+  const totalPrice = 3 + {price};
   useEffect(() => {
     if (
       userName &&
@@ -103,10 +104,10 @@ const CheckoutComp = ({ product, size, link }) => {
                 {name}
               </p>
               <p className=" text-red-600 font-extrabold lg:text-lg mb-2 lg:mb-4">
-                ₹{price}
+                ${price}
               </p>
               <p className="  text-neutral-400">
-                Size: <span className=" font-bold text-black">( {size} )</span>
+                Size: <span className=" font-bold text-black dark:text-slate-50">( {size} )</span>
               </p>
               {/* <p  className="  text-neutral-400">Nft Link: {link}</p> */}
             </div>
@@ -124,10 +125,10 @@ const CheckoutComp = ({ product, size, link }) => {
             </div>
             <div>
               <p className=" text-neutral-500 mb-1 font-semibold lg:text-lg">
-                30$
+                3$
               </p>
               <p className=" text-red-600 font-black text-xl lg:text-2xl">
-                70$
+                ${totalPrice}
               </p>
             </div>
           </div>

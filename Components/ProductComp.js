@@ -44,10 +44,10 @@ const ProductComp = ({ product, setActiveState, setSize, setLink }) => {
             </h4>
             <div className=" flex gap-3 mb-5">
               <h3 className=" mt-4  text-2xl font-bold text-red-600">
-                ₹{price}
+                ${price}
               </h3>
               <p className=" text-slate-400 text-[20px] line-through decoration-2 mt-4">
-                ₹{mainprice}
+                ${mainprice}
               </p>
             </div>
 
