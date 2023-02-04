@@ -7,6 +7,7 @@ import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi";
 import Treasury from "../artifacts/contracts/Contract.sol/Treasury.json";
 import { ethers } from "ethers";
 import { cryptoConvert } from "../uitls";
+import { useRouter } from "next/router";
 
 const CheckoutComp = ({ product, size, link }) => {
   const { image, name, price, _id } = product;
@@ -24,11 +25,13 @@ const CheckoutComp = ({ product, size, link }) => {
   const { address, isConnected } = useAccount();
   const [priceInEth, setPriceInEth] = useState(price + 5);
 
+  const router = useRouter();
+
   const getEthPrice = async () => {
     await cryptoConvert.ready();
     const priceInEth = cryptoConvert.USD.ETH(price);
     setPriceInEth(priceInEth);
-    console.log('priceInEth: ', priceInEth);
+    console.log("priceInEth: ", priceInEth);
   };
 
   useEffect(() => {
@@ -71,32 +74,42 @@ const CheckoutComp = ({ product, size, link }) => {
     e.preventDefault();
 
     await write();
+
     if (!isSuccess) {
       alert("Transaction failed");
       return;
     }
+
+    try{
+      const res = await supabase.from("orders").insert([
+        {
+          
+          user_id: address,
+          name: userName,
+          productName: name,
+          productId: _id,
+          emailAddress: email,
+          address,
+          size: size,
+          mobileNumber: userMobileNumber,
+          pinCode: pincode,
+          country: country,
+          city: city,
+          address: fullAddress,
+          nftLink: link,
+          shippingPrice: 5,
+          totalPrice: price,
+        },
+      ]);
+      console.log(res);
+      router.push("/success");
+
+    }catch (error){
+      alert('Transaction failed')
+      console.log(error)
+    }
     // console.log(supabase);
-    const res = await supabase.from("orders").insert([
-      {
-        user_id: address,
-        name: userName,
-        productName: name,
-        productId: _id,
-        emailAddress: email,
-        address,
-        size: size,
-        mobileNumber: userMobileNumber,
-        pinCode: pincode,
-        country: country,
-        city: city,
-        address: fullAddress,
-        nftLink: link,
-        shippingPrice: 5,
-        totalPrice: price,
-      },
-    ]);
     
-    console.log(res);
   };
 
   return (
