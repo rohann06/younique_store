@@ -95,7 +95,7 @@ const CheckoutComp = ({ product, size, link }) => {
         totalPrice: price,
       },
     ]);
-
+    
     console.log(res);
   };
 
