@@ -14,7 +14,7 @@ contract Treasury {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint amount, address reciever) public {
+    function withdraw(uint amount, address payable reciever) public {
         require(msg.sender == owner, "Only owner can withdraw");
         require(amount <= address(this).balance, "Insufficient balance");
         reciever.transfer(amount);
