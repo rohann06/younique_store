@@ -6,10 +6,10 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    // mainnet: {
-    //   url: "https://mainnet.infura.io/v3/f0f2442843654abbb153731d914a6efb",
-    //   accounts: [`${process.env.NEXT_APP_PRIVATE_KEY}`]
-    // }
+    mainnet: {
+      url: "https://mainnet.infura.io/v3/f0f2442843654abbb153731d914a6efb",
+      accounts: [`${process.env.NEXT_APP_PRIVATE_KEY}`]
+    }
   },
   solidity: {
     version: "0.6.0",
