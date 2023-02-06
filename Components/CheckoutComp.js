@@ -30,12 +30,11 @@ const CheckoutComp = ({ product, size, link }) => {
 
   //Total prie
 
-
   const getEthPrice = async () => {
     await cryptoConvert.ready();
     const priceInEthi = cryptoConvert.USD.ETH(priceInEth);
     setPriceInEth(priceInEthi);
-    console.log(priceInEth)
+    console.log(priceInEth);
     console.log("priceInEth: ", priceInEthi);
   };
 
@@ -80,41 +79,40 @@ const CheckoutComp = ({ product, size, link }) => {
 
     await write();
 
-    if (!isSuccess) {
-      alert("Transaction failed");
-      return;
-    }
-
-    try{
-      const res = await supabase.from("orders").insert([
-        {
-          
-          user_id: address,
-          name: userName,
-          productName: name,
-          productId: _id,
-          emailAddress: email,
-          address,
-          size: size,
-          mobileNumber: userMobileNumber,
-          pinCode: pincode,
-          country: country,
-          city: city,
-          address: fullAddress,
-          nftLink: link,
-          shippingPrice: 5,
-          totalPrice: price,
-        },
-      ]);
-      console.log(res);
-      router.push("/success");
-
-    }catch (error){
-      alert('Error while insurting data!')
-      console.log(error)
+    try {
+      if (!isSuccess) {
+        alert("Transaction failed");
+        return;
+      }
+    } catch {
+      try {
+        const res = await supabase.from("orders").insert([
+          {
+            user_id: address,
+            name: userName,
+            productName: name,
+            productId: _id,
+            emailAddress: email,
+            address,
+            size: size,
+            mobileNumber: userMobileNumber,
+            pinCode: pincode,
+            country: country,
+            city: city,
+            address: fullAddress,
+            nftLink: link,
+            shippingPrice: 5,
+            totalPrice: price,
+          },
+        ]);
+        console.log(res);
+        router.push("/success");
+      } catch (error) {
+        alert("Error while insurting data!");
+        console.log(error);
+      }
     }
     // console.log(supabase);
-    
   };
 
   return (
