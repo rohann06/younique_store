@@ -79,12 +79,7 @@ const CheckoutComp = ({ product, size, link }) => {
 
     await write();
 
-    try {
-      if (!isSuccess) {
-        alert("Transaction failed");
-        return;
-      }
-    } catch {
+    if (isSuccess) {
       try {
         const res = await supabase.from("orders").insert([
           {
@@ -111,7 +106,11 @@ const CheckoutComp = ({ product, size, link }) => {
         alert("Error while insurting data!");
         console.log(error);
       }
+    } else {
+      alert("Transaction failed");
+      return;
     }
+
     // console.log(supabase);
   };
 
