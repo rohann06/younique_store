@@ -88,6 +88,7 @@ const CheckoutComp = ({ product, size, link }) => {
             productName: name,
             productId: _id,
             emailAddress: email,
+
             address,
             size: size,
             mobileNumber: userMobileNumber,
@@ -106,9 +107,6 @@ const CheckoutComp = ({ product, size, link }) => {
         alert("Error while insurting data!");
         console.log(error);
       }
-    } else {
-      alert("Transaction failed");
-      return;
     }
 
     // console.log(supabase);
