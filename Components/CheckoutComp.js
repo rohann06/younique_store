@@ -24,6 +24,7 @@ const CheckoutComp = ({ product, size, link }) => {
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();
   const [priceInEth, setPriceInEth] = useState(price + 5);
+  const [totalPrice, setTotalPrice] = useState(price + 5);
 
   const router = useRouter();
 
@@ -34,6 +35,7 @@ const CheckoutComp = ({ product, size, link }) => {
     await cryptoConvert.ready();
     const priceInEthi = cryptoConvert.USD.ETH(priceInEth);
     setPriceInEth(priceInEthi);
+    console.log(priceInEth)
     console.log("priceInEth: ", priceInEthi);
   };
 
@@ -161,7 +163,7 @@ const CheckoutComp = ({ product, size, link }) => {
                 5$
               </p>
               <p className=" text-red-600 font-black text-xl lg:text-2xl">
-                ${price}
+                ${totalPrice}
               </p>
             </div>
           </div>
