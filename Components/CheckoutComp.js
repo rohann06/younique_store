@@ -19,7 +19,7 @@ const CheckoutComp = ({ product, size, link }) => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [fullAddress, setFullAddress] = useState("");
-  const [ethAmount, setEthAmout] = useState();
+  // const [ethAmount, setEthAmout] = useState();
 
   const [disableButton, setDisableButton] = useState(true);
   const { address, isConnected } = useAccount();

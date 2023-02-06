@@ -10,7 +10,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const { chains, provider } = configureChains(
-    [goerli, hardhat],
+    [mainnet],
     [publicProvider()]
   );
 
