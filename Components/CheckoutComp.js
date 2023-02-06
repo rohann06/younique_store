@@ -27,9 +27,12 @@ const CheckoutComp = ({ product, size, link }) => {
 
   const router = useRouter();
 
+  //Total prie
+
+
   const getEthPrice = async () => {
     await cryptoConvert.ready();
-    const priceInEth = cryptoConvert.USD.ETH(price);
+    const priceInEth = cryptoConvert.USD.ETH(priceInEth);
     setPriceInEth(priceInEth);
     console.log("priceInEth: ", priceInEth);
   };
@@ -105,7 +108,7 @@ const CheckoutComp = ({ product, size, link }) => {
       router.push("/success");
 
     }catch (error){
-      alert('Transaction failed')
+      alert('Error while insurting data!')
       console.log(error)
     }
     // console.log(supabase);
@@ -136,7 +139,7 @@ const CheckoutComp = ({ product, size, link }) => {
               <p className="  text-neutral-400">
                 Size:{" "}
                 <span className=" font-bold text-black dark:text-slate-50">
-                  ( {size} )
+                  ( {priceInEth} )
                 </span>
               </p>
               {/* <p  className="  text-neutral-400">Nft Link: {link}</p> */}
