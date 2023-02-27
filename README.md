@@ -19,7 +19,8 @@ I've used ![Supabase](https://supabase.com/) to store the customer data and ![Sa
 ## Functionality
 
 There are 4 pages in this website 
-
+ 
+the website is fully responsive
 
 ### Home page
 #### in the Home page users can find all the products in the product section
